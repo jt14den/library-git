@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-06-18 19:48:43 -0700">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.06/library-git">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-lc.ico" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Git Intro for Librarians: Sharing your work</title>
+  </head>
+  <body>
+    <div class="container">
+      
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-what-is-git/">What is Git/GitHub?</a></li>
+            
+            <li><a href="../02-getting-started/">Getting started</a></li>
+            
+            <li><a href="../03-sharing/">Sharing your work</a></li>
+            
+            <li><a href="../04-review/">Review</a></li>
+            
+            <li><a href="../05-github-pages/">Github pages</a></li>
+            
+	    <li role="separator" class="divider"></li>
+            <li><a href="../aio/">All in one page (Beta)</a></li>
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../reference/">Reference</a></li>
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../discuss/">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructors' Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+	
+	<li><a href="/edit/gh-pages/_episodes/03-sharing.md">Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../02-getting-started/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Git Intro for Librarians</a></h3>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-review/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+<article>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <h1 class="maintitle">Sharing your work</h1>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 30 min
+      <br/>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>What does <code class="highlighter-rouge">push</code> and <code class="highlighter-rouge">pull</code> mean?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>create a repository on GitHub</p>
+</li>
+	
+	<li><p>link a local repository with a repository on GitHub</p>
+</li>
+	
+	<li><p>push changes from the local repository to GitHub</p>
+</li>
+	
+	<li><p>pull changes back from GitHub to the local repository</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<h2 id="create-a-reposiotry">Create a reposiotry</h2>
+
+<p>When we have logged in to GitHub, we will see an option to create a new repository. Let’s make one for the GitHub experiments we are going to do today.</p>
+
+<ul>
+  <li>new repository</li>
+  <li>give it a name</li>
+</ul>
+
+<p>GitHub will ask you to create README.md, add a license and a <code class="highlighter-rouge">.gitignore</code> file. Do not do any of that for now.
+Once we have created the new repository, we still need to link the repository we have on our computer with the one we’ve just set up on GitHub.</p>
+
+<p>Choosing a license is an important part of openly sharing your creative work online. For help in wading through the
+many types of open source licenses, please visit https://choosealicense.com/.</p>
+
+<h2 id="connecting-your-local-repository-to-a-remote-repository">Connecting your local repository to a remote repository</h2>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git remote add origin &lt;web address of your repo.git&gt;
+</code></pre>
+</div>
+
+<blockquote class="callout">
+  <h2 id="why-origin">Why <code class="highlighter-rouge">origin</code>?</h2>
+  <p><code class="highlighter-rouge">origin</code> in the <code class="highlighter-rouge">git remote add</code> line is just a short name or alias we’re giving to that big long repository URL.
+It could be almost any string we want, but by convention in Git, it is usually called <code class="highlighter-rouge">origin</code>, representing where
+the repo originated.</p>
+</blockquote>
+
+<p>This will add a repository on GitHub for our changes to be committed to.</p>
+
+<p>Check that it is set up correctly with the command:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git remote -v
+</code></pre>
+</div>
+
+<h2 id="pushing-changes">“Pushing” changes</h2>
+
+<p>Then enter:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git push -u origin master
+</code></pre>
+</div>
+
+<p><strong>git push</strong> will add the changes made in our local repository to the repository on GitHub. The nickname of our remote is origin and the default local branch name is master. The <code class="highlighter-rouge">-u</code> flag tells Git to remember the parameters, so that next time we can simply run <code class="highlighter-rouge">git push</code> and Git will know what to do. Go ahead and push it!</p>
+
+<p>You will be prompted to enter your GitHub username and password to complete the command.</p>
+
+<p>When we do a <code class="highlighter-rouge">git push</code>, we will see Git ‘pushing’ changes upstream to GitHub. Because our file is very small, this won’t take long but if we had made a lot of changes or were adding a very large repository, we might have to wait a little longer.
+We can get to see where we’re at with <code class="highlighter-rouge">git status</code>.</p>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+</code></pre>
+</div>
+
+<p>This is letting us know where we are working (the master branch). We can also see that we have no changes to commit and everything is in order.</p>
+
+<p>We can use <code class="highlighter-rouge">git diff</code> to see changes we have made before making a commit.
+Let’s add another line to our text file.</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ open git_test.txt
+$ git diff
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/git_test.txt b/git_test.txt
+index 70c379b..1d55e1a 100644
+</span><span class="gd">--- a/git_test.txt
+</span><span class="gi">+++ b/git_test.txt
+</span><span class="gu">@@ -1 +1,2 @@
+</span><span class="gd">-Hello world
+</span>\ No newline at end of file
+<span class="gi">+Hello world
++More changes to my first github file
+</span>\ No newline at end of file
+</code></pre>
+</div>
+
+<p>We can see the changes we have made.</p>
+
+<ol>
+  <li>The first line tells us that Git is producing output similar to the Unix diff command comparing the old and new versions of the file.</li>
+  <li>The second line tells exactly which versions of the file Git is comparing; <code class="highlighter-rouge">df0654a</code> and <code class="highlighter-rouge">315bf3a</code> are unique computer-generated identifiers for those versions.</li>
+  <li>The third and fourth lines once again show the name of the file being changed.</li>
+  <li>The remaining lines are the most interesting; they show us the actual differences and the lines on which they occur. In particular, the + markers in the first column show where we have added lines.</li>
+</ol>
+
+<p>We can now commit these changes again:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add git_test.txt
+$ git commit -m 'second line of changes'
+</code></pre>
+</div>
+
+<p>Say we are very forgetful and have already forgotten what changes we have made. <code class="highlighter-rouge">git log</code> allows us to look at what we have been doing to our Git repository (in reverse chronological order, with the very latest changes first).</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>commit 40d3f7af25e19c06fa839a570d51e38fdb374e80
+Author: davanstrien &lt;email@gmail.com&gt;
+Date:   Sun Oct 18 15:25:19 2015 +0100
+
+    second line of changes
+
+commit 27c3f19c3340d930234d592928b11b63403d0696
+Author: davanstrien &lt;email@gmail.com&gt;
+Date:   Sun Oct 18 13:27:31 2015 +0100
+
+    hello world
+</code></pre>
+</div>
+
+<p>This shows us the two commits we have made and shows the messages we wrote. It is important to try to use meaningful commit messages when we make changes. This is especially important when we are working with other people who might not be able to guess as easily what our short cryptic messages might mean.</p>
+
+<p>We might get a little bit lonely working away on our own and want to work with other people. Before we get to that, it is worth learning one more command.</p>
+
+<h2 id="pulling-changes">“Pulling” changes</h2>
+
+<p>We can try to see how this works by making changes on the GitHub website and then ‘pulling’ them back to our computer.</p>
+
+<p>Let’s go to our repository. We can see our txt file and make changes. However, you may have noticed only our first change is there. This is because we didn’t push our last commit yet. This might seem like a mistake in design but it is often useful to make a lot of commits for small changes so you are able to make careful revisions later and you don’t necessarily want to push all these changes one by one.</p>
+
+<h2 id="pushing-and-pulling">Pushing and Pulling</h2>
+
+<p>Let’s go back and push our changes.</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git push
+</code></pre>
+</div>
+
+<p>Now if we go back to our GitHub repo, we can see all our changes. Let’s add an extra line of text there, and commit these changes. When we commit changes on GitHub itself, we don’t have to push these. Instead, we will need to pull them back to our lcoal repository instead.</p>
+
+<p>Now let’s get the third line on to our computer.</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git pull
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/davanstrien/git_lesson_example
+   40d3f7a..ef95e51  master     -&gt; origin/master
+Updating 40d3f7a..ef95e51
+Fast-forward
+ git_test.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</code></pre>
+</div>
+
+<p>If we open our text file again</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ open git_test.txt
+</code></pre>
+</div>
+
+<p>we can see our new lines.</p>
+
+<p>When we begin collaborating on more complex projects, we may have to consider more aspects of Git functionality, but this should be a good start. In the second hour, we can look more closely at collaborating and using GitHub pages.</p>
+
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>remote repositories on GitHub help you collaborate</p>
+</li>
+    
+    <li><p><code class="highlighter-rouge">push</code> is a Git verb for sending changes from the local repository to a remote repository</p>
+</li>
+    
+    <li><p><code class="highlighter-rouge">pull</code> is a Git verb for bringing changes from a remote repository to the local repository</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+</article>
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../02-getting-started/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-review/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016–2017
+	
+	<a href="">Library Carpentry</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	
+	<a href="/edit/gh-pages/_episodes/03-sharing.md">Edit on GitHub</a>
+	
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CITATION">Cite</a>
+	/
+	<a href="https://gitter.im/weaverbel/LibraryCarpentry">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
